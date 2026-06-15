@@ -1,0 +1,127 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* Fundo da página (Mesmo padrão suavizado) */
+body {
+    background-color: #1e1e1e;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container do Formulário */
+.formulario-painel {
+    background-color: #2d2d2d;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px; /* Mantém o formato compacto e elegante */
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+.formulario-header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 600;
+}
+
+/* Corpo do formulário */
+.formulario-corpo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grupo de campos */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Labels */
+.campo-grupo label {
+    color: #aaaaaa;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Inputs caixas de texto */
+.campo-grupo input {
+    background-color: #202020;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    height: 44px;
+    padding: 0 14px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.campo-grupo input::placeholder {
+    color: #666666;
+}
+
+/* Foco na caixa de texto muda para vermelho sutil para indicar perigo/exclusão */
+.campo-grupo input:focus {
+    border-color: #ff4a4a;
+    box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.15);
+}
+
+/* Botão Excluir (Vermelho de Alerta) */
+.btn-excluir {
+    background-color: #db3b3b;
+    border: none;
+    border-radius: 6px;
+    height: 46px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn-excluir:hover {
+    background-color: #ff4a4a;
+}
+
+.btn-excluir:active {
+    transform: scale(0.98);
+}
+
+/* Rodapé */
+.formulario-rodape {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Botão Cancelar cinza discreto */
+.btn-cancelar {
+    color: #888888;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.btn-cancelar:hover {
+    color: #ffffff; /* Fica branco puro ao passar o mouse */
+}

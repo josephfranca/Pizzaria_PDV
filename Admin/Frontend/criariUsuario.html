@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Usuário</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/criarUsuarios.css">
+</head>
+
+<body>
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Criar Usuário</h1>
+        </div>
+
+        <form class="formulario-corpo">
+            <div class="campo-grupo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="nomeUsuario">nomeUsuário</label>
+                <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Digite o nome de usuário">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite a sua senha">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="tipo">Tipo</label>
+                <select name="tipo" id="tipo">
+                    <option value="" disabled selected>Selecione o tipo de usuário</option>
+                    <option value="admin">Administrador</option>
+                    <option value="comum">Comum</option>
+                </select>
+
+                <div class="formulario-rodape">
+                    <a href="telaUsuarios.html" class="btn-voltar">Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

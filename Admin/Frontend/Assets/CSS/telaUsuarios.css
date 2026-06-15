@@ -1,0 +1,101 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo da página */
+body {
+    background-color: #2e2e2e;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container Principal (A caixa grande exterior) */
+.user-painel {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 2px solid #555555;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px; /* Largura igual à primeira tela */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Título centralizado no topo */
+.painel-header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+
+.quadros {
+    display: flex;
+    flex-direction: row; /*deixa lado a lado */
+    justify-content: space-between; /* Distribui os botões igualmente */
+    gap: 20px; /* Espaço entre os botões */
+    width: 100%;
+    margin-bottom: auto; /* Empurra o botão de voltar para o fundo */
+}
+
+/* Estilo dos 3 botões principais */
+.btn-action {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid #666666;
+    border-radius: 6px;
+    flex: 1; /* Faz com que todos tenham o mesmo tamanho */
+    height: 120px; /* Altura generosa parecida com a primeira tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #00adb5;
+    color: #00adb5;
+    transform: translateY(-3px);
+}
+
+/* Rodapé para alinhar o botão Voltar na extrema direita */
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Botão Voltar */
+.btn-back {
+    background-color: transparent;
+    border: 2px solid #555555;
+    border-radius: 4px;
+    padding: 10px 30px;
+    color: #aaaaaa;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    border-color: #ff4a4a;
+    color: #ff4a4a;
+}
