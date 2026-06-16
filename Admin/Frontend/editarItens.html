@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Item Existente</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/editarItem.css">
+</head>
+<body>
+
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Editar Item</h1>
+        </div>
+
+        <form action="../backend/atualizarItem.php" method="POST" class="formulario-corpo">
+            
+            <div class="campo-grupo campo-destaque">
+                <label for="selecionar_item">Selecione o Item para Editar</label>
+                <select id="selecionar_item" name="id_item" required>
+                    <option value="" disabled selected>Escolha o produto que deseja alterar...</option>
+                    <option value="12">Pizza Calabresa G</option>
+                    <option value="15">Pizza Frango com Catupiry</option>
+                    <option value="22">Coca-Cola 2L</option>
+                </select>
+            </div>
+
+            <hr class="divisor">
+
+            <div class="campo-grupo">
+                <label for="titulo">Título (Nome do Item)</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Nome atual do item" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="" disabled selected>Selecione a nova categoria</option>
+                    <option value="1">Pizzas Tradicionais</option>
+                    <option value="2">Pizzas Especiais</option>
+                    <option value="3">Bebidas</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" name="preco" step="0.01" min="0" placeholder="0,00" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="descricao">Descrição (Ingredientes)</label>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Ingredientes atuais do produto..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-editar">Salvar Alterações</button>
+
+            <div class="formulario-rodape">
+                <a href="telaItens.html" class="btn-voltar">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

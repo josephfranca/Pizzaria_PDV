@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Item</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/excluirItem.css">
+</head>
+<body>
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Excluir Item</h1>
+            <p class="alerta-texto">Atenção: Esta ação removerá o produto permanentemente do cardápio.</p>
+        </div>
+
+        <form action="../backend/deletar_item.php" method="POST" class="formulario-corpo">
+            
+            <div class="campo-grupo">
+                <label for="id_item">ID do Item</label>
+                <input type="number" id="id_item" name="id_item" placeholder="Digite o ID do item para buscar" required min="1">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="nome_item">Nome do Item (Confirmação)</label>
+                <input type="text" id="nome_item" name="nome_item" placeholder="O nome aparecerá aqui automaticamente..." readonly class="input-bloqueado">
+            </div>
+
+            <button type="submit" class="btn-excluir">Excluir Item</button>
+
+            <div class="formulario-rodape">
+                <a href="telaItens.html" class="btn-cancelar">Cancelar</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

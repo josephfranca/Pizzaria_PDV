@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Item</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/criarItem.css">
+</head>
+<body>
+
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Adicionar Item</h1>
+        </div> <form action="../backend/salvar_item.php" method="POST" class="formulario-corpo">
+            
+            <div class="campo-grupo">
+                <label for="titulo">Título (nome do Item)</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ex: Pizza frango com catupiry" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="" disabled selected>Selecione a categoria do item</option>
+                    <option value="1">Pizzas Tradicionais</option>
+                    <option value="2">Pizzas Especiais</option>
+                    <option value="3">Bebidas</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" name="preco" step="0.01" min="0" placeholder="0,00" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="descricao">Descrição (ingredientes)</label>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Digite os ingredientes ou detalhes do produto"></textarea>
+            </div>
+
+            <button type="submit" class="btn-salvar">Salvar Item</button>
+
+            <div class="formulario-rodape">
+                <a href="telaItens.html" class="btn-voltar">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
