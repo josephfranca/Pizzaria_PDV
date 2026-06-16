@@ -1,0 +1,124 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* Fundo da página padrão */
+body {
+    background-color: #1e1e1e;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container da Tabela */
+.tabela-painel {
+    background-color: #2d2d2d;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px; /* Mais larga para caber a tabela confortavelmente */
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+.tabela-header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Scroll horizontal caso a tela seja muito pequena (celular) */
+.tabela-conteudo {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Estrutura da Tabela */
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços duplos nas bordas */
+    text-align: left;
+}
+
+/* Cabeçalho da tabela */
+.tabela-dados th {
+    background-color: #202020;
+    color: #aaaaaa;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #444444;
+}
+
+/* Linhas de dados */
+.tabela-dados td {
+    padding: 14px 16px;
+    color: #ffffff;
+    font-size: 15px;
+    border-bottom: 1px solid #444444;
+}
+
+/* Efeito zebrado: deixa uma linha sim e outra não ligeiramente mais escura */
+.tabela-dados tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Efeito de destaque ao passar o mouse na linha */
+.tabela-dados tbody tr:hover {
+    background-color: rgba(0, 173, 181, 0.05);
+}
+
+/* Estilização das Tags de Tipo (Atendente / ADM) */
+.tag-tipo {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tag-tipo.adm {
+    background-color: rgba(0, 173, 181, 0.15);
+    color: #00adb5;
+    border: 1px solid rgba(0, 173, 181, 0.3);
+}
+
+.tag-tipo.atendente {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #cccccc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Rodapé */
+.tabela-rodape {
+    display: flex;
+    justify-content: center;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    color: #888888;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.btn-voltar:hover {
+    color: #ffffff;
+}
