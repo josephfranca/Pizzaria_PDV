@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Categoria</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/excluirCategoria.css">
+</head>
+<body>
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Excluir Categoria</h1>
+        </div>
+        <form action="../Backend/desativarCategoria.php" method="post" class="formulario-corpo">
+
+            <div class="campo-grupo">
+                <label for="idCategoria">ID Categoria</label>
+                <input type="number" name="idCategoria" id="idCategoria" placeholder="Digite o ID da categoria" required min="1">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="nomeCategoria">Nome da Categoria</label>
+                <input type="text" id="nomeCategoria" name="nomeCategoria" placeholder="O nome aparecerá aqui automaticamente..." readonly class="input-bloqueado">
+            </div>
+
+            <div class="caixa-aviso">
+                <p><strong>Texto de aviso:</strong> operação apenas desativará a categoria no sistema, evitando a perda em cascata dos itens vinculados a ela.</p>
+            </div>
+
+            <button type="submit" class="btn-excluir">Excluir</button>
+
+            <div class="formulario-rodape">
+                <a href="telaCategorias.html" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

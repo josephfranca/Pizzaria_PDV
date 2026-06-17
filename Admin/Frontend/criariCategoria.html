@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Nova Categoria</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/criarCategoria.css">
+</head>
+<body>
+    <div class="formulario-painel">
+        <div class="formulario-header">
+            <h1>Adicionar Categoria</h1>
+        </div>
+
+        <form action="../Backend/salvarCategoria.php" method="post" class="formulario-corpo">
+            <div class="campo-grupo">
+                <label for="nomeCategoria">Nome da Categoria</label>
+                <input type="text" id="nomeCategoria" name="nomeCategoria" placeholder="Digite o nome da nova categoria">
+            </div>
+
+            <button type="submit" class="btn-salvar">Salvar Categoria</button>
+
+            <div class="formulario-rodape">
+                <a href="telaCategorias.html" class="btn-voltar">Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
