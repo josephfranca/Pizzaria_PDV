@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tabela-painel {
+    background-color: #2d2d2d;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tabela-header{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.tabela-header h1{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    color: #888888;
+    font-size: 14px;
+}
+
+.tabela-counteudo {
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #202020;
+
+}
+
+.tabela-dados {
+    width: 100%;
+    border-collapse:collapse ;
+    text-align: left;
+}
+
+.tabela-dados th{
+    background-color: #1a1a1a;
+    color: #aaaaaa;
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #444444;
+}
+.col-selecionar,
+.celula-checkbox { 
+    width: 120px; 
+    text-align: center; 
+}
+.col-nome,
+.tabela-dados td:nth-child(2) { 
+    padding-left: 24px;
+    text-align: left;
+}
+.col-status,
+.tabela-dados td:last-child { 
+    width: 140px; 
+    text-align: center; 
+}
+.tabela-dados td{
+    padding: 14px;
+    color: #ffffff;
+    font-size: 15px;
+    border-bottom: 1px solid #333333;
+    vertical-align: middle;
+}
+
+/* .tabela-dados tbody tr:last-child td {
+    border-bottom: none;
+} */
+
+
+
+.celula-checkbox input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+    accent-color: #00adb5;
+    cursor: pointer;
+}
+
+.label-linha {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.status-badge {
+    background-color: rgba(235, 94, 85, 0.1);
+    color: #eb5e55;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(235, 94, 85, 0.2);
+}
+
+.tabela-dados td:last-child {
+    text-align: center;
+}
+
+.tabela-botoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-voltar {
+    background-color: transparent;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    height: 44px;
+    padding: 0 24px;
+    color: #bbbbbb;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.btn-reativar {
+    background-color: #00adb5;
+    border: none;
+    border-radius: 6px;
+    height: 44px;
+    padding: 0 30px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-reativar:hover{
+    background-color: #00c2cb;
+}
+
+.btn-reativar:active {
+    transform: scale(0.98);
+}
+
+.tabela-dados th:nth-child(1),
+.tabela-dados td:nth-child(1) {
+    width: 120px !important;
+    text-align: center !important;
+    padding: 14px 0 !important; 
+}
+
+
+.tabela-dados th:nth-child(2),
+.tabela-dados td:nth-child(2) {
+    text-align: left !important;
+    padding-left: 20px !important; 
+}
+
+
+.tabela-dados th:nth-child(3),
+.tabela-dados td:nth-child(3) {
+    width: 130px !important;
+    text-align: center !important;
+}
+
+.celula-checkbox {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.celula-checkbox input[type="checkbox"] {
+    display: inline-block;
+    margin: 0 auto; 
+    vertical-align: middle;
+}
