@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-header {
+    background-color: #262626;
+    padding: 15px 30px;
+    border-bottom: 1px solid #333333;
+}
+
+.info-atendente {
+    display: flex;
+    justify-content: space-between;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.info-atendente strong, #hora-atual {
+    color: #ffffff;
+}
+
+/*Divisão da tela*/
+
+.caixa-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 25px;
+    flex-grow: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.painel-esquerdo, .painel-direito {
+    background-color: #242424;
+    border: 1px solid #383838;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 18px;
+    color: #ffffff;
+    border-bottom: 1px solid #383838;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-caixa {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-grupo label, label-master {
+    color: #aaaaaa;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+}
+
+.campo-grupo select, .campo-grupo input {
+    background-color: #1a1a1a;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    height: 42px;
+    padding: 0 12px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.grid-opcoes {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.grid-opcoes label {
+    background-color: #1a1a1a;
+    border: 1px solid #444444;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid-opcoes input[type="radio"] {
+    accent-color: #00adb5;
+}
+
+.btn-opcao, .btn-acao-azul {
+    background-color: #00adb5;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    height: 46px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-acao-azul:hover{
+    background-color: #00c2cb;
+}
+
+.numero-pedido {
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 15px;
+}
+
+.numero-pedido span{
+    color: #00adb5;
+    font-weight: 600;
+}
+
+.pedido-lista-wrapper {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 15px;
+    flex-grow: 1; /* Faz a lista ocupar o espaço vertical disponível */
+    min-height: 180px;
+    margin-bottom: 15px;
+}
+
+.pedido-lista-wrapper h3 {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.lista-itens-pedido {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item-pedido-linha {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #333333;
+}
+
+.total-pedido {
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    border-bottom: 2px solid #383838;
+}
+
+#valor-total {
+    color: #00adb5;
+}
+
+.input-readonly {
+    background-color: #202020 !important;
+    border-color: #333333 !important;
+    color: #888888 !important;
+    cursor: not-allowed;
+}
+
+.caixa-acoes-rodape {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+}
+
+.btn-cancelar-sair {
+    color: #888888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.btn-cancelar-sair:hover {
+    color: #eb5e55;
+}
+
+/* Responsividade simples para telas pequenas */
+@media (max-width: 900px) {
+    .caixa-container {
+        grid-template-columns: 1fr;
+    }
+}

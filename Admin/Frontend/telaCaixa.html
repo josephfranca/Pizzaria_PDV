@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa - sistema de pizzaria</title>
+    <link rel="stylesheet" href="../Frontend/Assets/CSS/telaCaixa.css">
+</head>
+
+<body>
+    <header class="caixa-header">
+        <div class="info-atendente">
+            <p>Atendente: <strong>Nome do usuário</strong></p>
+            <p>Hora: <span id="hora-atual">20:00</span></p>
+        </div>
+    </header>
+
+    <div class="caixa-container">
+        <section class="painel-esquerdo">
+            <h2>1 Inserção de itens</h2>
+            <form id="form-insercao" class="form-caixa">
+                <div class="campo-grupo">
+                    <label>Categoria (dropdown)</label>
+                    <select id="select-categoria" required>
+                        <option value="">Selecione a categoria</option>
+                        <option value="pizzas">Pizzas</option>
+                        <option value="bebidas">Bebidas</option>
+                    </select>
+                </div>
+                <div class="campo-grupo">
+                    <label>2 Item (dropdown)</label>
+                    <select id="select-item" required>
+                        <option value="" disabled selected>Selecione o Item...</option>
+                        <option value="1">Pizza de Calabresa</option>
+                        <option value="2">Pizza de Frango c/ Catupiry</option>
+                        <option value="3">Coca-Cola 2L</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo-opcoes">
+                    <label class="label-master">3 Tamanho</label>
+                    <div class="grid-opcoes">
+                        <label><input type="radio" name="tamanho" value="broto"> Broto</label>
+                        <label><input type="radio" name="tamanho" value="media"> Média</label>
+                        <label><input type="radio" name="tamanho" value="grande" checked> Grande</label>
+                        <label><input type="radio" name="tamanho" value="nao_aplica"> Não se aplica</label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo-opcoes">
+                    <label class="label-master">4 Bordas</label>
+                    <div class="grid-opcoes">
+                        <label><input type="radio" name="borda" value="catupiry"> Catupiry</label>
+                        <label><input type="radio" name="borda" value="cheddar"> Cheddar</label>
+                        <label><input type="radio" name="borda" value="chocolate"> Chocolate Preto</label>
+                        <label><input type="radio" name="borda" value="nao_aplica" checked> Não se aplica</label>
+                    </div>
+                </div>
+               <button type="button" id="btn-adicionar-pedido" class="btn-acao-azul">Adicionar item ao pedido</button>
+            </form>
+        </section>
+
+        <section class="painel-direito">
+            <h2>2 Resumo e fechamento</h2>
+            <div class="numero-pedido">
+                número do pedido: <span>#0123</span>
+            </div>
+            <div class="pedido-lista-wrapper">
+                <h3>Pedido atual:</h3>
+                <ul class="lista-itens-pedido" id="lista-itens">
+                    <li class="item-pedido-linha">
+                        <!-- <span>item 1 - Pizza Calabresa</span>
+                        <strong>R$ 45,00</strong> -->
+                    </li>
+                    <li class="item-pedido-linha">
+                        <!-- <span>Item 2 - Coca-Cola 2L</span>
+                        <strong>R$ 10,00</strong> -->
+                    </li>
+                </ul>
+            </div>
+            <div class="total-pedido">
+                Total do pedido: <span id="valor-total">R$ 0,00</span>
+            </div>
+
+            <form id="form-fechamento" class="form=caixa">
+                <div class="campo-grupo">
+                    <label>
+                        5 Tipo de pagamento (dropdown)
+                    </label>
+                    <select id="Tipo de pagamento">
+                        <option value="pix">PIX</option>
+                        <option value="dinheiro">Dinheiro</option>
+                        <option value="cartao">Cartão de Crédito/Débito</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label>6 Valor pago:</label>
+                    <input type="text" id="valor-pago" placeholder="R$ 0,00">
+                </div>
+                <div class="campo-grupo">
+                    <label>7 Troco:</label>
+                    <input type="text" id="valor-troco" value="Cálculo automático" readonly class="input-readonly">
+                </div>
+            </form>
+
+            <div class="caixa-acoes-rodape">
+                <a href="index.html" class="btn-cancelar-sair">sair</a>
+            </div>
+        </section>
+    </div>
+    <script src="../Frontend/Assets/Javascript/caixa.js"></script>
+</body>
+
+</html>
