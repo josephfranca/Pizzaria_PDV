@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
+    // Se não for admin, chuta de volta para o login com uma mensagem de erro
+    header("Location: ../../login.html?erro=acesso_negado");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +17,7 @@
     <link rel="stylesheet" href="../Frontend/Assets/CSS/telaADM.css">
 </head>
 <body>
+
     <div class="admin-panel">
         <h1>Tela de adm</h1>
         

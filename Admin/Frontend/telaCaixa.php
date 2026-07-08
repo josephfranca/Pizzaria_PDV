@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    // Se não estiver logado, manda de volta para o login
+    if (!isset($_SESSION['tipo_usuario'])) {
+        header("Location:index.php");
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

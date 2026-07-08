@@ -13,10 +13,10 @@
             <p>Seja bem vindo! Faça login para continuar</p>
         </div>
 
-        <form action="../Backend/autenticar.php" method="post" class="login-corpo">
+        <form action="../Backend/loginAction.php" method="post" class="login-corpo">
             <div class="campo-grupo">
                 <label for="usuario">Usuário</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário">
+                <input type="text" id="usuario" name="nomeUsuario" placeholder="Digite seu usuário">
             </div>
 
             <div class="campo-grupo">
