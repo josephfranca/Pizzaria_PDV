@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     //Validação para caso esteja algo vazio
     if (empty($nomeUsuario) || empty($senha)) {
-        header("Location: ../login.html?erro=campos_vazios");
+        header("Location: ../Frontend/index.php?erro=campos_vazios");
         exit;
     }
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['nome_usuario'] = $usuario['nomeUsuario'];
             $_SESSION['tipo_usuario'] = $usuario['tipo']; // Aqui guarda 'admin' ou 'atendente'
 
-            // A MÁGICA DO REDIRECIONAMENTO POR TIPO DE USUÁRIO:
+            // Redirecionamento por tipo de usuário
             if ($usuario['tipo'] === 'admin') {
                 // Se for Admin, vai para a tela de administração
                 header("Location: ../Frontend/telaADM.php"); 
@@ -49,12 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         } else {
             // Usuário ou senha incorretos
-            header("Location: ../login.html?erro=dados_incorretos");
+            header("Location: ../Frontend/index.php?erro=dados_incorretos");
             exit;
         } 
         
     } catch(\PDOException $e) {
-        header("Location: ../login.html?erro=erro_sistema");
+        header("Location: ../Frontend/index.php?erro=erro_sistema");
         exit;
     }
     

@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Trava de segurança no topo da tela do adm
+
+if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin'){
+    header("Location: index.php?erro=acesso_negado");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,5 +37,22 @@
             </div>
         </form>
     </div>
+    <!--Script de feedback pro usuário--> 
+
+    <?php if(isset($_GET['status'])): ?>
+        <script>
+            const status = "<?php echo htmlspecialchars($_GET['status']); ?>";
+
+            if (status === 'sucesso') {
+                alert('Categoria cadastrada com sucesso!');
+            } else if (status === 'campo_vazio') {
+                alert('Por favor, informe o nome da categoria.');
+            } else if (status === 'ja_existe') {
+                alert('Já existe uma categoria cadastrada com esse nome!');
+            } else if (status === 'erro_sistema') {
+                alert('Ocorreu um erro ao salvar no banco de dados. Tente novamente.');
+            }
+        </script>
+        <?php endif; ?>
 </body>
 </html>

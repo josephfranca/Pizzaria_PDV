@@ -27,5 +27,22 @@
             <button type="submit" class="btn-entrar">Entrar</button>
         </form>
     </div>
+    <!--Script de tratamento de erros de login-->
+    <?php if (isset($_GET['erro'])): ?>
+        <script>
+            //Captura o erro passado na url
+            const erro = "<?php echo htmlspecialchars($_GET['erro']); ?>";
+
+            if(erro === 'campos_vazios'){
+                alert('Por favor, preencha todos os campos!');
+            } else if (erro === 'dados_incorretos'){
+                alert('Usuário ou senha incorretos!');
+            } else if (erro === 'tipo_invalido'){
+                alert('Tipo de usuário não reconhecido!');
+            }else if (erro === 'erro_sistema'){
+                alert('Ocorreu um erro no sistema. Tente novamente mais tarde.')
+            }
+        </script>
+        <?php endif; ?>
 </body>
 </html>
