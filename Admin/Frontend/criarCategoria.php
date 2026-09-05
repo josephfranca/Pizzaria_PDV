@@ -26,15 +26,24 @@ if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin'){
 
         <form action="../Backend/salvarCategoria.php" method="post" class="formulario-corpo">
             <div class="campo-grupo">
-                <label for="nomeCategoria">Nome da Categoria</label>
-                <input type="text" id="nomeCategoria" name="nomeCategoria" placeholder="Digite o nome da nova categoria">
-            </div>
+        <label for="nome_categoria">Nome da Categoria:</label>
+        <input type="text" id="nome_categoria" name="nome_categoria" placeholder="Ex: Pizzas Salgadas" required>
+    </div>
 
-            <button type="submit" class="btn-salvar">Salvar Categoria</button>
+    <div class="campo-grupo">
+        <label for="status_categoria">Status:</label>
+        <select id="status_categoria" name="status_categoria" required>
+            <option value="1" selected>Ativo</option>
+            <option value="0">Inativo</option>
+        </select>
+    </div>
 
-            <div class="formulario-rodape">
+    <button type="submit" class="btn-salvar">Cadastrar Categoria</button>
+   
+    <div class="formulario-rodape">
                 <a href="telaCategorias.html" class="btn-voltar">Voltar</a>
             </div>
+</form>
         </form>
     </div>
     <!--Script de feedback pro usuário--> 

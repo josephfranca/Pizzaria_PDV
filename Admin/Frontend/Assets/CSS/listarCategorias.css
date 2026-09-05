@@ -1,147 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-}
-
 body {
-    background-color: #1e1e1e;
-    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 24px 24px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 20px;
 }
 
-.tabela-painel {
-    background-color: #2d2d2d;
-    border: 1px solid #444444;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 850px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.tabela-header {
-    text-align: center;
-    margin-bottom: 25px;
+.header-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.tabela-header h1{
-    color: #ffffff;
+.header-pagina h1 {
     font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 6px;
+    margin: 0;
 }
 
-.subtitulo {
-    color: #888888;
-    font-size: 14px;
-}
-
-.tabela-conteudo {
-    overflow-x: auto;
-    width: 100%;
-    margin-bottom: 25px;
-    border: 1px solid #444444;
+.btn-nova {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    padding: 10px 18px;
+    text-decoration: none;
     border-radius: 6px;
-    background-color: #202020;
+    border: 1px solid #444;
+    transition: background 0.3s;
 }
 
-.tabela-dados {
+.btn-nova:hover {
+    background-color: #3d3d3d;
+}
+
+.tabela-categorias {
     width: 100%;
     border-collapse: collapse;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.tabela-dados th{
-    background-color: #1a1a1a;
-    color: #aaaaaa;
-    padding: 14px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #444444;
-}
-
-.tabela-dados td{
-    padding: 14px 16px;
-    color: #ffffff;
-    font-size: 14px;
-    border-bottom: 1px solid #333333;
-    vertical-align: middle;
-}
-
-.tabela-dados tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.tabela-dados tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.01);
-}
-
-.tabela-dados th:nth-child(1),
-.tabela-dados td:nth-child(1) {
+.tabela-categorias th, 
+.tabela-categorias td {
+    padding: 14px 18px;
     text-align: left;
-    font-weight: 500;
+    border-bottom: 1px solid #2d2d2d;
 }
 
-.tabela-dados th:nth-child(3),
-.tabela-dados td:nth-child(3) {
-    text-align: center;
+.tabela-categorias th {
+    background-color: #282828;
+    color: #bbb;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
-.tabela-dados th:nth-child(4),
-.tabela-dados td:nth-child(4) {
-    text-align: center;
-    color: #aaaaaa;
+.tabela-categorias tr:hover {
+    background-color: #252525;
 }
 
-.tabela-dados th:nth-child(5),
-.tabela-dados td:nth-child(5) {
-    text-align: center;
-    font-weight: 600;
-    color: #00adb5;
-}
-
-.badge {
+/* Badges de Status */
+.status-ativo {
+    color: #20b2aa;
+    background-color: rgba(32, 178, 170, 0.15);
     padding: 4px 10px;
     border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-block;
-}
-
-.status-ativo {
-    background-color: rgba(0, 173, 181, 0.1);
-    color: #00adb5;
-    border: 1px solid rgba(0, 173, 181, 0.2);
+    font-weight: bold;
 }
 
 .status-inativo {
-    background-color: rgba(235, 94, 85, 0.1);
-    color: #eb5e55;
-    border: 1px solid rgba(235, 94, 85, 0.2);
-}
-
-.tabela-rodape {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-voltar{
-    color: #888888;
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    padding: 5px 10px;
-}
-
-.btn-voltar:hover {
-    color: #ffffff;
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.15);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
 }

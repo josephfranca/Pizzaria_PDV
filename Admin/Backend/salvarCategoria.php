@@ -1,52 +1,46 @@
 <?php
- session_start();
-require_once'conexao.php';
+session_start();
+require_once 'conexao.php';
 
-//Proteção para apenas os usuários do tipo Admin poderem cadastrar categorias
-
-if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin'){
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
     header("Location: ../Frontend/index.php?erro=acesso_negado");
     exit;
 }
 
-if ($_SERVER['request_method'] === 'POST'){
-    //Capturando o nome da categoria enviado pelo formulário
-    $nomeCategoria = trim($_POST['nome_categoria'] ?? '');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nomeCategoria   = trim($_POST['nome_categoria'] ?? '');
+    $statusCategoria = isset($_POST['status_categoria']) ? (int)$_POST['status_categoria'] : 1;
 
-    //Validação para que não seja aceito nome vazio
-
-    if(empty($nomeCategoria)){
-        header("Location: ../Frontend/criarCategoria.php?status=campus_vazio");
+    if (empty($nomeCategoria)) {
+        header("Location: ../Frontend/criarCategoria.php?status=campo_vazio");
         exit;
     }
 
-    try{
-        //verifica se já existe uma categoria com o mesmo nome
-        $stmtChecar = $pdo->prepare("SELECT id_categoria FROM categorias WHERE nome = :nome");
+    try {
+        // Checa duplicidade usando nomeCategoria
+        $stmtChecar = $pdo->prepare("SELECT id_categoria FROM categorias WHERE nomeCategoria = :nome");
         $stmtChecar->execute([':nome' => $nomeCategoria]);
 
-        if($stmtChecar->rowCount() > 0){
+        if ($stmtChecar->rowCount() > 0) {
             header("Location: ../Frontend/criarCategoria.php?status=ja_existe");
             exit;
         }
 
-        $stmt = $pdo->prepare("INSERT INTO categorias (nome, ativo) VALUES (:nome, 1) ");
-        $stmt->execute([':nome' => $nomeCategoria]);
+        // Insere com o nome de coluna exato do seu MySQL
+        $stmt = $pdo->prepare("INSERT INTO categorias (nomeCategoria, statusCategoria) VALUES (:nome, :status)");
+        $stmt->execute([
+            ':nome'   => $nomeCategoria,
+            ':status' => $statusCategoria
+        ]);
 
-        //Caso cadastre certinho
-        header("Location: ../Frontend/criarCategoria.php?status=sucesso");
+        header("Location: ../Frontend/listarCategorias.php?status=sucesso");
         exit;
-    } catch (\PDOException $e){
-        //Erro no banco
-        header("Location: ../Frontend/criarCategoria.php?status=erro_sistema");
-        exit;
+
+    } catch (\PDOException $e) {
+        die("ERRO AO SALVAR NO BANCO: " . $e->getMessage());
     }
-
-}else {
-    //Caso algum engraçadinho tente acessar direto pela url sem enviar o formulário
-
+} else {
     header("Location: ../Frontend/criarCategoria.php");
     exit;
 }
-
 ?>

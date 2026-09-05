@@ -1,64 +1,84 @@
+<?php
+session_start();
+require_once '../Backend/conexao.php';
+
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
+    header("Location: index.php?erro=acesso_negado");
+    exit;
+}
+
+try {
+    $stmt = $pdo->query("SELECT id_categoria, nomeCategoria, statusCategoria FROM categorias ORDER BY id_categoria DESC");
+    $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (\PDOException $e) {
+    die("ERRO AO BUSCAR CATEGORIAS: " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Categorias - ADM</title>
-    <link rel="stylesheet" href="../Frontend/Assets/CSS/listarCategorias.css">
+    <title>Lista de Categorias - PDV</title>
+    <link rel="stylesheet" href="Assets/CSS/listarCategorias.css">
 </head>
 <body>
+
     <div class="tabela-painel">
         <div class="tabela-header">
-            <h1>Categorias Registradas</h1>
-            <p class="subtitulo">Visão geral dos agrupamentos do cardápio</p>
+            <h1>Categorias Cadastradas</h1>
+            <p class="subtitulo">Gerenciamento dos setores do cardápio</p>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: right;">
+            <a href="criarCategoria.php" class="btn-novo">+ Nova Categoria</a>
         </div>
 
         <div class="tabela-conteudo">
             <table class="tabela-dados">
                 <thead>
                     <tr>
-                        <th>Nome Categoria</th>
-                        <th>Quantidade Produtos</th>
+                        <th>ID</th>
+                        <th>Nome da Categoria</th>
                         <th>Status</th>
-                        <th>Data de criação</th>
-                        <th>ID Categoria</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Pizzas Tradicionais</td>
-                        <td>14 itens</td>
-                        <td><span class="badge status=ativo">Ativo</span></td>
-                        <td>23/06/2026</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Pizzas Doces</td>
-                        <td>0 itens</td>
-                        <td><span class="badge status=ativo">Desativado</span></td>
-                        <td>23/06/2026</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Bebidas</td>
-                        <td>8 itens</td>
-                        <td><span class="badge status=ativo">Ativo</span></td>
-                        <td>23/06/2026</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Combos & Promoções</td>
-                        <td>3 itens</td>
-                        <td><span class="badge status=ativo">Ativo</span></td>
-                        <td>23/06/2026</td>
-                        <td>4</td>
-                    </tr>
+                    <?php if (!empty($categorias)): ?>
+                        <?php foreach ($categorias as $cat): ?>
+                            <?php 
+                                $valStatus = strtolower(trim($cat['statusCategoria']));
+                                $isAtivo = ($valStatus === '1' || $valStatus === 'ativo' || $valStatus == 1);
+                            ?>
+                            <tr>
+                                <td><?php echo $cat['id_categoria']; ?></td>
+                                <td><?php echo htmlspecialchars($cat['nomeCategoria']); ?></td>
+                                <td>
+                                    <span class="badge <?php echo $isAtivo ? 'status-ativo' : 'status-inativo'; ?>">
+                                        <?php echo $isAtivo ? 'Ativo' : 'Inativo'; ?>
+                                    </span>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3" style="text-align: center;">Nenhuma categoria encontrada.</td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
+
         <div class="tabela-rodape">
-            <a href="telaCategorias.html" class="btn-voltar">Voltar</a>
+            <a href="telaADM.php" class="btn-voltar">← Voltar ao Painel</a>
         </div>
     </div>
+
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'sucesso'): ?>
+        <script>
+            alert('Categoria cadastrada com sucesso!');
+        </script>
+    <?php endif; ?>
+
 </body>
 </html>
